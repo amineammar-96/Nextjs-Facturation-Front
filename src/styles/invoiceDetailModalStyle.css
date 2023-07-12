@@ -1,0 +1,120 @@
+
+.invoice {
+    background: #fff;
+    width: 100%;
+    padding: 50px;
+  }
+  
+  .logo {
+    width: 4cm;
+  }
+  
+  .document-type {
+    text-align: right;
+    color: #444;
+  }
+  
+  .conditions {
+    font-size: 0.7em;
+    color: #666;
+  }
+  
+  .bottom-page {
+    font-size: 0.7em;
+  }
+
+
+  .totalTableModal  td {
+    text-align: left;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+
+  .totalTableModal tr > td:first-child {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    padding: 0 !important;
+}
+
+
+.addNewPaymentModalBtn{
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.addNewPaymentModalBtn span{
+  color: white;
+}
+
+.addNewPaymentModalBtn:hover{
+  background-color: rgb(44, 42, 42);
+}
+
+.ant-modal-footer button:nth-child(2){
+  background-color: black;
+}
+
+.footerModalBtnClose {
+  background-color: black !important;
+  color: white !important;
+  border: none !important;
+}
+
+.footerModalBtnClose:hover {
+  background-color: rgb(48, 46, 46) !important;
+  color: white !important;
+}
+
+.footerModalBtnClose:hover span {
+  color: white !important;
+}
+
+
+.footerModalBtnSubmit {
+  background-color: #2e8ece !important;
+  color: white !important;
+  border: none !important;
+}
+
+.footerModalBtnSubmit:hover {
+  background-color: #2881bd !important;
+  color: white !important;
+}
+
+.footerModalBtnSubmit:hover span {
+  color: white !important;
+}
+
+
+
+
+
+.faDeleteTransaction{
+  cursor: pointer;
+  font-size: 1.3rem !important;
+
+}
+
+
+.faDeleteTransaction:hover{
+  color: orangered !important;
+}
+
+.plusSpanTransaction{
+  padding: 0px 4px !important;
+    background-color: #fff !important;
+    color: black !important;
+    border-radius: 50%!important;
+    font-size: 1rem !important;
+    margin-left: 5px !important;
+}
+
+
+.redDashedLine{
+  text-decoration: line-through;
+  color: red !important;
+}

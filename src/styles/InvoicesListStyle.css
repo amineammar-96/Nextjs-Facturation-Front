@@ -1,0 +1,561 @@
+.invoicesListDiv table {
+  border: 1px solid rgb(255, 255, 255);
+  border-top: none;
+  border-right: none;
+  transition: opacityFrame 5s ease;
+}
+.invoicesListDiv table thead {
+  /* border: 1px solid black; */
+  border-top: none;
+  border-right: none;
+  /* height: 60px; */
+}
+
+.invoicesListDiv table thead tr {
+  border: none;
+}
+.invoicesListDiv table thead tr th:first-child {
+  color: white;
+  /* background-color: #ffffff; */
+}
+
+.invoicesListDiv table thead tr th {
+  text-align: center;
+  background-color: #858d92;
+  border-top: none;
+  border-right: none;
+  padding: 10px 20px;
+
+  border: none;
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+.invoicesListDiv table thead tr th span {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.invoicesListDiv table tbody tr {
+  border: none;
+}
+
+@keyframes opacityFrame {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.tableRowsFooter td {
+  background-color: #ededed !important;
+  color: rgb(0, 0, 0);
+  /* border-bottom: 20px solid rgb(168, 168, 168) !important; */
+  font-weight: normal;
+}
+
+.tableRowsFooter td:last-child {
+  /* background-color: #ededed  !important; */
+}
+
+.tableRowsFooter td:first-child {
+  justify-content: center;
+  height: 80px;
+}
+
+.notPaid {
+  text-align: center;
+  position: relative;
+}
+.notPaid span {
+  /* position: absolute; */
+  display: flex;
+  top: 30%;
+  right: 30%;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: red;
+  color: red !important;
+}
+
+.open {
+  text-align: center;
+}
+.open span {
+  display: flex;
+  top: 30%;
+  right: 30%;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+
+  background-color:rgb(255, 162, 0) !important;
+  color: rgb(255, 162, 0) !important;
+}
+
+.paid {
+  text-align: center;
+}
+.paid span {
+  display: flex;
+  top: 30%;
+  right: 30%;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  color: rgb(28, 137, 1) !important;
+  background-color: rgb(80, 255, 80);
+}
+
+.tableRowsFooter td span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.faCashRegister {
+  cursor: pointer;
+  color: rgb(27, 28, 29);
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+
+.faCashRegister:hover {
+  color: rgb(45, 47, 49);
+}
+
+.invoicesListDiv table tbody tr td {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 10px;
+  vertical-align: middle;
+  border: none;
+  border-right: 2px solid #f7f8f96e;
+}
+
+.invoicesListDiv tfoot td {
+  padding-top: 35px !important;
+  border: none;
+}
+
+.invoicesListDiv table tbody tr td:nth-child(3) {
+  text-align: left;
+  padding-left: 15px;
+}
+.invoicesListDiv table tbody tr td:nth-child(3),
+.invoicesListDiv table tbody tr td:nth-child(4) {
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.invoicesListDiv table tbody tr td:last-child {
+  background-color: #ffffff;
+  padding: 10px 0px;
+  padding-top: 25px !important;
+}
+
+.faDownload {
+  transition: 0.5s ease;
+  color: black;
+  font-size: 1.7rem;
+  margin-right: 15px;
+}
+.faDownloadSpan:hover .faDownload {
+  color: rgb(201, 55, 113);
+
+  transform: scale(1.01);
+}
+
+.faPayment {
+  transition: 0.5s ease;
+  color: black;
+  font-size: 1.7rem;
+  margin-right: 10px;
+}
+
+.faPaymentSpan:hover .faPayment {
+  color: rgb(51, 218, 84);
+
+  transform: scale(1.01);
+}
+
+.faEdit {
+  transition: 0.5s ease;
+  color: black;
+  font-size: 1.7rem;
+  margin-right: 10px;
+}
+.faEditSpan:hover .faEdit {
+  color: rgb(234, 118, 47);
+
+  transform: scale(1.01);
+}
+
+.faDelete {
+  transition: 0.5s ease;
+  color: black;
+  font-size: 1.7rem;
+  margin-right: 15px;
+}
+
+.faEnvelope {
+  transition: 0.5s ease;
+  color: black;
+  font-size: 1.7rem;
+  margin-right: 15px;
+}
+
+.faEnvelopeSpan , .cashRegisterPar, .faPaymentSpan , .faEditSpan , .faDownloadSpan ,  .faDeleteSpan{
+  position: relative;
+  display: inline-block;
+}
+
+.hover-text {
+  position: absolute;
+  top: 40px;
+  left: -300%;
+  display: none;
+  padding: 3px;
+  background-color: #ffffff;
+  border: 1px solid #000;
+  border-radius: 4px;
+  min-width: 176px;
+}
+
+.faEnvelopeSpan:hover .hover-text,
+.faPaymentSpan:hover .hover-text,
+.faEditSpan:hover .hover-text,
+.faDownloadSpan:hover .hover-text,
+.faDeleteSpan:hover .hover-text,
+.cashRegisterPar:hover .hover-text
+{
+  display: block;
+}
+
+.faEnvelopeSpan:hover .faEnvelope {
+  color: rgb(0, 171, 151);
+  transform: scale(1.1);
+}
+
+.faDeleteSpan:hover .faDelete {
+  color: rgb(237, 74, 74);
+
+  transform: scale(1.1);
+}
+
+.containerSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 400px;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  cursor: pointer;
+  color: #000000;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.5s;
+  border: 1px solid #ddd;
+  margin: 10px 10px;
+  font-size: 20px;
+}
+
+.pagination a.active {
+  background-color: #29a9e5 !important;
+  color: #ffffff;
+  border: 1px solid #29a9e5;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #eceaea;
+}
+
+.paginationDiv {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.invoicesListDiv table tbody tr td:last-child {
+  padding: 10px 0px;
+  vertical-align: baseline;
+  margin-top: 12px;
+  margin: 0;
+}
+
+.containerActionsDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box {
+  background-color: #ffffff;
+  height: 60px;
+  border-radius: 5px;
+  padding: 10px 18px;
+  width: 100%;
+  border: 1px solid #dddddd;
+}
+
+.containerActionsDiv .icon {
+  color: #060606;
+  float: right;
+  width: 40px;
+  font-size: 1.7rem;
+  /* height: 40px; */
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: not-allowed;
+  text-decoration: none;
+  padding: 0 15px;
+}
+
+.containerActionsDiv input {
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  background: none;
+  font-size: 1rem;
+  transition: 0.5s ease;
+  line-height: 40px;
+  color: #000000;
+  width: 90%;
+}
+
+.selectBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+.select-wrapper::after {
+  color: black;
+  content: "▾";
+  margin-right: 15px;
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  font-size: 20px;
+}
+.select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: white;
+  border: 1px solid #dddddd;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 12px;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 5px;
+}
+.select:focus {
+  color: black;
+}
+.select::-ms-expand {
+  display: none;
+}
+
+.selectBox select {
+  height: 60px;
+}
+
+.responseCountDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.responseCountDiv h6 {
+  padding-bottom: 0;
+  /* margin-bottom:7px; */
+}
+
+.countResponseBox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.invoicesListDiv table tbody tr td p {
+  cursor: pointer;
+}
+
+.invoicesListDiv table tbody tr:last-child td {
+  border: none;
+}
+
+.rangePickerInvoicesList .ant-space-vertical {
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.rangePickerInvoicesList .ant-space-item {
+  width: 100%;
+}
+
+.rangePickerInvoicesList .ant-picker-range {
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  height: 60px;
+  border: #dddddd 1px solid;
+}
+
+.rangePickerInvoicesList .ant-picker .ant-picker-input > input {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.rangePickerInvoicesList .ant-picker .ant-picker-suffix {
+  color: rgb(0 0 0);
+  font-size: 1.4rem;
+}
+
+.rangePickerInvoicesList .ant-space-vertical {
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.rangePickerDashboard .ant-space-item {
+  width: 100%;
+}
+
+.rangePickerDashboard .ant-picker-range {
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  height: 60px;
+  border: black 1px solid;
+}
+
+.rangePickerDashboard .ant-picker .ant-picker-input > input {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.rangePickerDashboard .ant-picker .ant-picker-suffix {
+  color: rgb(0 0 0);
+  font-size: 1rem;
+}
+
+.checkboxInputs {
+  height: 20px;
+  width: 20px;
+  accent-color: rgb(80, 255, 80);
+}
+
+.checkboxesTds {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 90px !important;
+}
+
+.faEnvelopeAux {
+  transition: 0.5s ease;
+  font-size: 1.1rem;
+  margin-right: 0px;
+}
+
+.faEnvelopeTd:hover .faEnvelopeAux {
+  color: rgb(0, 171, 151);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.invoicesListDiv tr > td:first-child {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+.btnsDivOptionsFilter{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btnsDivOptionsFilter .ant-radio-group , .btnsDivOptionsFilter .ant-space-compact-block {
+  display: flex !important;
+
+}
+
+.btnsDivOptionsFilter .ant-radio-button-wrapper ,  .btnsDivOptionsFilter .ant-btn-compact-item{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding-inline: 67px !important;
+    
+}
+
+
+.btnsDivOptionsFilter .ant-radio-button-wrapper:hover:not(.ant-radio-button-wrapper-checked) {
+  position: relative;
+  color: #000000 !important;
+  background-color: #efefefdd;
+
+}
+
+.btnsDivOptionsFilter .ant-radio-button-wrapper-checked::before {
+  background-color: transparent !important;
+}
+
+.btnsDivOptionsFilter .ant-radio-button-wrapper-checked{
+  border-color: #dddd !important;
+  background-color: #dddd;
+  position: relative;
+  color: rgb(0, 0, 0) !important;
+}
+
+.ant-btn-default:not(:disabled):hover {
+  color: #0e0d0d;
+  border-color: #000000;
+}
+
+
+.linkDropDownTable{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.tableHeaderBtns .ant-select-selector , .tableHeaderBtns .ant-dropdown-trigger{
+  padding: 20px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

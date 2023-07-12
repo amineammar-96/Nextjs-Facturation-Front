@@ -1,0 +1,93 @@
+
+.containerLoginBox{
+
+min-height:100vh;
+
+}
+
+.containerLoginDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 700px;
+}
+
+.containerLoginBox .wrapper {    
+	margin-top: 80px;
+	margin-bottom: 20px;
+    width: 100%;
+
+}
+
+.containerLoginBox .form-signin {
+  max-width: 500px;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  /* border: 3px solid #2e8ece; */
+  /* box-shadow: 0px 2px 8px 7px #f3f3f3 !important; */
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.containerLoginBox .form-signin-heading {
+  text-align:center;
+  margin-bottom: 30px;
+}
+
+.containerLoginBox .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  width: 100%;
+
+}
+
+.containerLoginBox input[type="text"] {
+  margin-bottom: 12px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #f5f4f4;
+  padding-right: 50px;
+}
+
+.containerLoginBox input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-color: #f6f6f6;
+  padding-right: 50px;
+
+}
+
+.colorgraph {
+  height: 3px;
+  border-top: 0;
+  background: black;
+  border-radius: 5px;
+ 
+}
+
+.loginBtnDiv{
+
+}
+
+.loginBtn{
+    border-radius:2px !important;
+    background: #2e8ece !important;
+    color:white !important;
+    padding: 11px 45px !important;
+    font-size:1.2rem !important;
+    transition: all ease 0.5s;
+}
+
+
+
+.loginBtn:hover{
+  border-radius:2px !important;
+  background: #2d81b9 !important;
+  color:white !important;
+  padding: 11px 45px !important;
+  font-size:1.21rem !important;
+}

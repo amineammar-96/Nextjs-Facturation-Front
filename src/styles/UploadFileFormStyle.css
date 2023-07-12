@@ -1,0 +1,113 @@
+
+.header {
+
+  
+  max-height: 700px;
+
+  width: 100%;
+}
+
+.topDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.leftTopDiv {
+  background-color: #ffffff;
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px 0;
+}
+
+.headerTitle {
+  margin: 25px 0;
+  font-size: 1.6rem;
+  padding: 7px 80px;
+  font-weight: bold;
+  color: #1e1c1c;
+  text-align: center;
+
+}
+
+
+.formCard {
+  margin-top: 40px;
+    background-color: #ebf0f1;
+    width: 55%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px 4px rgb(212 212 212);
+    border: 2px solid #d9d9d9;
+
+}
+
+.formTag {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formTag label {
+  color: rgb(25, 23, 23);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 14px 0;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: self-start;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+
+.btnDiv {
+}
+
+.btnDiv button {
+  border-radius: 5px;
+  padding: 10px 48px;
+  background-color: #191a1b;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+}
+
+.btnDiv button:hover {
+  background-color: #1c1e1f;
+  color: white;
+}
+
+
+
+.datePickerDiv{
+  display: flex;
+
+}
+
+.pickerBox{
+  width: 100%;
+}
+
+
+.pickerBox .form-group{
+  padding-top: 0;
+
+}

@@ -1,0 +1,660 @@
+
+.createMollieUserFormBox form {
+  width: 500px;
+  margin: 0;
+  padding: 10px 20px;
+  background: #f1f4f5;
+  border-radius: 2px;
+  /* border:2px solid #2e8ece; */
+  box-shadow: 0 0 20px 0 rgba(169, 169, 169, 0.2), 0 5px 5px 0 rgba(172, 172, 172, 0.24);
+  padding-top: 20px;
+}
+
+
+.createMollieUserFormBox h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+  font-size:1.3rem;
+  font-weight:bold;
+}
+
+
+.createMollieUserFormBox input[type="text"],
+
+.createMollieUserFormBox input[type="password"],
+
+.createMollieUserFormBox input[type="date"],
+
+.createMollieUserFormBox input[type="datetime"],
+
+.createMollieUserFormBox input[type="email"],
+
+.createMollieUserFormBox input[type="number"],
+
+.createMollieUserFormBox input[type="search"],
+
+.createMollieUserFormBox input[type="tel"],
+
+.createMollieUserFormBox input[type="time"],
+
+.createMollieUserFormBox input[type="url"],
+
+.createMollieUserFormBox textarea,
+
+.createMollieUserFormBox select {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 1);
+  border: none;
+  font-size: 1rem;
+  height: 40px;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  /* box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset; */
+  margin-bottom: 10px;
+  margin-bottom: 15px;
+  border:1px solid #000000;
+
+
+  
+}
+
+
+.createMollieUserFormBox input[type="radio"],
+
+.createMollieUserFormBox input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+
+.createMollieUserFormBox select {
+  border-radius: 2px;
+  /* padding: 15px; */
+  color:black;
+
+  height: 57px;
+
+}
+
+
+.createMollieUserFormBox button {
+  padding: 10px 5px;
+  color: #FFF;
+  background-color: #202223;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 30%;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 2px;
+  margin-top: 12px;
+
+}
+
+.createMollieUserFormBox button:hover {
+  background-color: #323739;
+
+}
+
+
+.createMollieUserFormBox fieldset {
+  margin-bottom: 2px;
+  border: none;
+}
+
+
+.createMollieUserFormBox legend {
+  font-size: 1.4em;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.createMollieUserFormBox label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+
+.createMollieUserFormBox label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+
+.createMollieUserFormBox .number {
+  background-color: #2e8ece;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+@media screen and (min-width: 480px) {
+
+ 
+.createMollieUserFormBox  form {
+    /* max-width: 80%; */
+  }
+
+}
+
+
+.molliePageBody{
+  background-color:rgb(255, 255, 255);
+  /* display: flex; */
+  
+}
+
+.molliePageBody nav{
+ padding: 30px;
+ 
+ margin-top: 50px;
+}
+
+
+
+.deleteMollieUserBtn{
+  background-color:rgb(226, 43, 43) !important;
+  border: 1px solid rgb(226, 43, 43) !important;
+
+}
+
+
+
+/* Layout */
+.s-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.s-layout__content {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  align-items: flex-start;
+
+}
+
+
+
+
+
+.table-wrapper{
+  margin: 10px 70px 70px;
+}
+
+
+.table-wrapper tr td:last-child{
+text-align: right;
+}
+/* 
+.fl-table {
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+}
+
+.fl-table td, .fl-table th {
+  text-align: center;
+  padding: 8px;
+}
+
+.fl-table td {
+  border-bottom: 1px dashed #e2dddd;
+  font-size: 1rem;
+  padding:20px 0;
+  height: 50px;
+  background-color: white;
+
+
+}
+.fl-table tr:nth-child(odd) {
+  background-color: rgb(135, 44, 44) !important;
+}
+
+.fl-table thead th {
+  font-size: 0.9rem;
+
+  color: #ffffff;
+  background: #1d1f20;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+  color: #ffffff;
+  background: #323536;
+} */
+
+
+/* Responsive */
+/* 
+@media (max-width: 767px) {
+  .fl-table {
+      display: block;
+      width: 100%;
+  }
+  .table-wrapper:before{
+      content: "Scroll horizontally >";
+      display: block;
+      text-align: right;
+      font-size: 11px;
+      color: white;
+      padding: 0 0 10px;
+  }
+  .fl-table thead, .fl-table tbody, .fl-table thead th {
+      display: block;
+  }
+  .fl-table thead th:last-child{
+      border-bottom: none;
+  }
+  .fl-table thead {
+      float: left;
+  }
+  .fl-table tbody {
+      width: auto;
+      position: relative;
+      overflow-x: auto;
+  }
+  .fl-table td, .fl-table th {
+      padding: 20px .625em .625em .625em;
+      height: 60px;
+      vertical-align: middle;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      overflow-y: auto;
+      width: 120px;
+      font-size: 13px;
+      text-overflow: ellipsis;
+  }
+  .fl-table thead th {
+      text-align: left;
+      border-bottom: 1px solid #f7f7f9;
+  }
+  .fl-table tbody tr {
+      display: table-cell;
+  }
+  .fl-table tbody tr:nth-child(odd) {
+      background: none;
+  }
+  .fl-table tr:nth-child(even) {
+      background: transparent;
+  }
+  .fl-table tr td:nth-child(odd) {
+      background: #F8F8F8;
+      border-right: 1px solid #E6E4E4;
+  }
+  .fl-table tr td:nth-child(even) {
+      border-right: 1px solid #E6E4E4;
+  }
+  .fl-table tbody td {
+      display: block;
+      text-align: center;
+  }
+} */
+
+
+.stepTwo{
+  width: 100%;
+}
+
+
+.tableActionCol span:nth-child(1){
+  color:red;
+  font-size:1.4rem;
+  margin : 0 15px;
+  cursor:pointer;
+}
+
+
+.tableActionCol span:nth-child(2){
+  color:green;
+  font-size:1.4rem;
+  margin : 0 15px;
+  cursor:pointer;
+}
+
+
+.mandatUserSelectedId{
+width: 40vw !important;
+min-width: 300px;
+}
+
+
+
+input:disabled {
+  /* CSS styles for disabled inputs */
+  background-color: #ffffff !important;
+  color: #999999 !important;
+  border: 1px solid #5174f6 !important;
+  cursor: not-allowed !important;
+
+}
+
+
+.paginationsTable{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.paginationsTable button{
+  cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin: 14px 0px;
+    border: none;
+}
+
+.paginationsTable button{
+  background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    /* font-size: 12px; */
+
+
+}
+
+.paginationsTable .activeBtn{
+  background-color: #2e8ece;
+
+
+}
+
+
+
+
+.paginationsTable button:not(.currentPageBtn):hover {
+  background-color: #fbfbfb;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  }
+.currentPageBtn{
+  background-color: #f3f3f3 !important;
+  color: #000000 !important;
+  border: #eff2f3 2px solid !important;
+
+}
+
+.currentPageBtn:hover{
+  cursor: not-allowed;
+}
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  margin-right: 10px;
+}
+.select-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.select-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  background-color: #fff;
+  margin-right: 10px;
+}
+
+.select-input:focus {
+  outline: none;
+}
+
+.select-input option {
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+.mandateCardDiv .card {
+  width: 40vw !important;
+
+  margin: auto;
+  border-radius: 2px;
+  margin-top: 3em;
+  color: #FFF;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  transition: all .3s ease;
+  padding: 0 10px;
+  background-color: #242627;
+  
+}
+.mandateCardDiv .card.chase .knownBank, .card.bofa .knownBank, .card.wellsFargo .knownBank {
+  display: inline-block;
+}
+/*  */
+.mandateCardDiv .card.chase .unknownBank, .card.bofa .unknownBank, .card.wellsFargo .unknownBank {
+  display: none;
+}
+.mandateCardDiv .card.chase {
+  position: relative;
+  background-color: #242627;
+  box-shadow: 0 0 20px 0 rgba(55, 52, 52, 0.379), 0 5px 5px 0 rgba(37, 34, 34, 0.257);
+  border-radius: 10px;
+}
+
+.mandateCardDiv .logo {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:-20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(251, 250, 250);
+    padding:30px;
+    border-radius: 50%;
+    color: #202223;
+    border: 2px solid #202223;
+}
+
+
+.mandateCardDiv .logoAux {
+  display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bankAccountDivBtn button{
+  padding: 12px 20px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+
+.faBuildingColumns{
+  font-size: 5rem;
+}
+
+.faPenAlt{
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+
+
+.title {
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+.info {
+  margin: 10px 0;
+  font-size: 1.3rem;
+
+}
+.info .title {
+  text-align: left;
+  margin: 0;
+  padding: 5px 0;
+  color: rgba(255,255,255,0.75);
+  font-size: 1.3rem;
+}
+
+
+
+
+.tabsDiv nav ul {
+  list-style: inside none;
+  display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0;
+
+}
+.tabsDiv nav li {
+  float: left; 
+  height: 50px;
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+  text-transform: capitalize; 
+  /* margin-right: 1px;  */
+  position: relative;
+}
+.tabsDiv .list-item--active {
+  overflow: visible; 
+}
+.tabsDiv nav a { 
+  width: 100%;
+  font-size: 1.1rem; 
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  display: block;
+  line-height: 50px; 
+  transition: all 200ms ease-in;
+  margin: 0;
+    padding: 0;
+}
+.tabsDiv nav a.active {  
+  top: 0;
+  pointer-events: none;
+  cursor: default;
+  background-color: #242727;
+  border-radius: 5px;
+
+  color: #ffffff;
+}
+/* .tabsDiv nav a.active:after {
+  content: "";
+  width: 0; 
+  height: 0;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 10px solid #2e8ece;
+  background-color: transparent;
+} */
+/* Insteed of badly duplicating text content in a span, use :after pseudo class add a blue block after the element with all required attributes. see pseudo class :after and :before for more details */
+/* 
+.tabsDiv nav a:after {
+  content: attr(data-caption); 
+  display: block; 
+  position: absolute;
+  top: 100%;
+  width: 100%; 
+  height: 40px;
+  background-color: #2e8ece;
+  color: #fff;
+} */
+
+
+.fl-table td {
+  height: 100px !important;
+}
+
+
+.footerTables{
+  margin-top: 12px;
+  border-top: 1px solid rgb(226, 226, 226);
+  font-size: 12px;
+    line-height: 150%;
+    color: #90A3BF;
+    padding-bottom: 24px;
+}
+
+
+
+.molliePayemntsTd .status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  width: 70px;
+  text-align: center;
+}
+
+.molliePayemntsTd .success {
+  background-color: #58e65d;
+  color: #fff;
+}
+
+
+.molliePayemntsTd .pending {
+  background-color: #40e7e9;
+  color: #fff;
+}
+
+.molliePayemntsTd .warning {
+  background-color: #ffc925;
+  color: #fff;
+}
+
+.molliePayemntsTd .error {
+  background-color: #f36a61;
+  color: #fff;
+}
