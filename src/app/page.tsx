@@ -39,8 +39,7 @@ import InvoiceDatesChart from "./components/statsCompoentns/InvoiceDatesChart";
 import dayjs, { Dayjs } from "dayjs";
 import UploadFileForm from "./components/UploadFileForm";
 export default function StatistiquesPage() {
-  const urlApi = "https://api.confident-darwin.212-227-197-242.plesk.page/api";
-
+  const urlApi = "https://api.facturation.editeur-dentaire.fr/api";
   // const router = useRouter();
 
   const [amountTtcSum, setAmountTtcSum] = useState(0.0);
@@ -98,7 +97,22 @@ export default function StatistiquesPage() {
     formData.append('startDate', startDateFormatted);
     formData.append('endDate', endDateFormatted);
 
-    axios.post(`${urlApi}/statistics_invoices_allAmounts`, formData).then((response) => {
+    const options = {
+      method: 'post',
+      url: `${urlApi}/statistics_invoices_allAmounts`,
+      data: formData,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'Access-Control-Allow-Credentials' : 'true',
+        'withCredentials': 'true',
+      },
+    };
+
+    axios(options).then((response) => {
       let amountSum = response.data.totalAmountTTC;
       let amountSumTax = response.data.totalTvaTax;
       let invoicesCoun = response.data.countInvoices;
@@ -150,8 +164,21 @@ export default function StatistiquesPage() {
   }, []);
 
   async function getAllPayments() {
-    await axios
-      .get(`${urlApi}/getAllPayments`)
+    const options = {
+      method: 'GET',
+      url: `${urlApi}/getAllPayments`,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'Access-Control-Allow-Credentials' : 'true',
+        'withCredentials': 'true',
+
+      },
+    };
+    await axios(options)
       .then((response) => {
         let paymentsArrayAux: any = [];
 
@@ -341,13 +368,13 @@ export default function StatistiquesPage() {
                                 format="DD/MM/YYYY"
                                 cellRender={(current) => {
                                   const style: React.CSSProperties = {};
-                                  if (current.date() === 1) {
+                                  if ((current as  Dayjs).date() === 1) {
                                     style.border = '1px solid #1677ff';
                                     style.borderRadius = '50%';
                                   }
                                   return (
                                     <div className="ant-picker-cell-inner" style={style}>
-                                      {current.date()}
+                                      {(current as  Dayjs).date()}
                                     </div>
                                   );
                                 }}

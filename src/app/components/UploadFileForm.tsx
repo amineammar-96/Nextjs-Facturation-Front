@@ -13,6 +13,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useRouter } from "next/router";
 import { addMonths, subMonths, format } from "date-fns";
+import Papa from 'papaparse';
 
 import { fr } from "date-fns/locale";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
@@ -32,8 +33,7 @@ export default function UploadFileForm() {
 
   let formDataFileCsv = new FormData();
 
-  const urlApi = "https://api.confident-darwin.212-227-197-242.plesk.page/api"
-
+  const urlApi = "https://api.facturation.editeur-dentaire.fr/api";
 
   useEffect(() => {
     registerLocale("fr", fr);
@@ -51,34 +51,66 @@ export default function UploadFileForm() {
     }, []);
 
   useEffect(() => {
+
+    const options = {
+      method: 'GET',
+      url: `${urlApi}/invoices_progress`,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'withCredentials': 'true',
+      },
+    };
     const fetchProgress = async () => {
       if (loading) {
         try {
-          const response = await axios.get(
-            urlApi + "/invoices_progress",
-            {
-              withCredentials: true,
-              headers: {
-                Cookie: `${cookies.get("invoice_generation_progress")}`,
-              },
-            }
-          );
-          const progressAux = response.data;
+          const response = await axios(options);
+          const progressAux = response.data.progress;
           setProgress(progressAux);
         } catch (error) {
           console.log("Error:", error);
         }
       }
     };
-
+    fetchProgress(); 
     const interval = setInterval(fetchProgress, 1000);
 
     return () => clearInterval(interval);
   }, [loading]);
 
+
+  const [invoiceLines, setInvoiceLines] = useState<string[][]>([]);
+  const [numInvoices, setNumInvoices] = useState<number>(-1);
+
+
   const handleFileChange = (event: any) => {
-    const file = event.target.files[0];
-    setUploadedFile(file);
+    const fileAux = event.target.files[0];
+    setUploadedFile(fileAux);
+
+    const file = event.target.files?.[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const fileContent = e.target?.result as string;
+        const parsedData = Papa.parse(fileContent, { delimiter: ';' });
+
+        if (parsedData.data) {
+          const invoiceLinesData: string[][] = parsedData.data
+            .filter((row:any) => row[0] && /^[0-9]+$/.test(row[0]))
+            .map((row:any) => row.map((item:any) => String(item)));
+
+          setInvoiceLines(invoiceLinesData);
+          setNumInvoices(invoiceLinesData.length);
+
+        }
+      };
+
+      reader.readAsText(file, 'utf-8');
+    }
   };
 
   const genratorFormSubmit = (event: any) => {
@@ -113,6 +145,11 @@ export default function UploadFileForm() {
       const config = {
         headers: {
           "Content-Type": "multipart/form-data",
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          'Access-Control-Allow-Credentials' : 'true',
         },
       };
 
@@ -121,21 +158,24 @@ export default function UploadFileForm() {
       const start = formatDate(startDate);
       const end = formatDate(endDate);
 
-      console.log(formDataFileCsv, " hahahah ");
       let req = {
         file: uploadedFile,
         start: start,
         end: end,
       };
 
+      console.log('re');
+        console.log('re : ' , req);
+
       axios
         .post(url, req, {
           ...config,
-          // responseType: "blob",
+          responseType: "arraybuffer",
         })
         .then((response) => {
 
-          const url = window.URL.createObjectURL(new Blob([response.data.pdfResponse]));
+          const zipBlob = new Blob([response.data], { type: "application/zip" });
+          const url = URL.createObjectURL(zipBlob);
           const link = document.createElement("a");
           link.href = url;
           link.setAttribute("download", "facturation-saps.zip");
@@ -144,25 +184,22 @@ export default function UploadFileForm() {
           URL.revokeObjectURL(url);
           setLoading(false);
           setUploadedFile(null);
+          setNumInvoices(-1);
+          console.log('rlinklinklinklink: '  , link);
+          console.log('response.data.pdfResponse: '  , response.data.pdfResponse);
+          console.log('response: '  , response.data);
 
           console.log('response.data.invoicesToGenerate : '  , response.data.invoicesToGenerate);
 
           Swal.fire({
             icon: "success",
             html:
-            "Félicitations ! Le processus de génération du fichier ZIP des factures est terminé avec succès. <br><br> "+response.data["invoicesToGenerate"] + " factures ont été générées" ,
+            "Le processus de génération du fichier ZIP des factures est terminé avec succès.",
             confirmButtonColor: "black",
             confirmButtonText: "D'accord",
           });
 
-          // setTimeout(() => {
-          //   window.location.reload();
-
-          // }, 2000)
-
-
-
-
+        
 
         })
         .catch((error) => {
@@ -209,6 +246,8 @@ export default function UploadFileForm() {
   };
 
 
+
+
   return (
     <>
         <div className="topDiv">
@@ -228,6 +267,12 @@ export default function UploadFileForm() {
                     <label htmlFor="csvFile">
                       Télécharger un fichier CSV ici
                     </label>
+
+                    {numInvoices>=0 && (
+                    <p style={{ color:"red" }}>Nombre de facture detectée : {numInvoices}</p>
+                    )}
+                     
+                     
                     <input
                       accept=".csv"
                       type="file"
@@ -279,11 +324,16 @@ export default function UploadFileForm() {
 
             {loading && (
               <LoadingComponent
-                textChildren={`${progress} sur ${invoicesGeneratedCount} `}
+                textChildren={`${numInvoices} `}
               />
             )}
+
+
+
           </div>
           
+         
+         
         </div>
     </>
   );

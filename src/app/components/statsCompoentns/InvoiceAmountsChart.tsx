@@ -10,7 +10,7 @@ import { ChartOptions } from 'chart.js';
 Chart.register(...registerables);
 
 export default function InvoiceAmountsChart({ startDate, endDate } :any) {
-  const urlApi = "https://api.confident-darwin.212-227-197-242.plesk.page/api";
+  const urlApi = "https://api.facturation.editeur-dentaire.fr/api";
   const [statistics, setStatistics] = useState<any[]>([]);
   const [monthsArray, setMonthArray] = useState<any[]>([]);
   const [yearsArray, setYearArray] = useState<any[]>([]);
@@ -31,7 +31,21 @@ export default function InvoiceAmountsChart({ startDate, endDate } :any) {
     formData.append('startDate' , startDate);
     formData.append('endDate' , endDate);
 
-    axios.post(`${urlApi}/statistics_invoices_amounts` , formData)
+      const options = {
+        method: 'post',
+        url: `${urlApi}/statistics_invoices_amounts`,
+        data: formData,
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          'withCredentials': 'true',
+        },
+      };
+
+    axios(options)
     .then((response) => {
         response.data.stats.forEach((element:any) => {
             statsArraAux.push(element);

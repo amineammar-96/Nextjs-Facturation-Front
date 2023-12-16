@@ -322,7 +322,7 @@
   transition: 0.4s;
   cursor: not-allowed;
   text-decoration: none;
-  padding: 0 15px;
+  padding: 5px 15px;
 }
 
 .containerActionsDiv input {
@@ -558,4 +558,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+
+.avoir {
+  text-align: center;
+  position: relative;
+}
+.avoir span {
+  /* position: absolute; */
+  display: flex;
+  top: 30%;
+  right: 30%;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgb(32, 106, 255);
+  color: rgb(32, 106, 255) !important;
 }

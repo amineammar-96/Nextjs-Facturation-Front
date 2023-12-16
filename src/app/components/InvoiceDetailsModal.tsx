@@ -80,10 +80,8 @@ export default function InvoiceDetailsModal({ open, onClose, invoiceId }: any) {
 
 
 
-    console.log('invoiceId , ', invoiceId);
 
-    const urlApi = "https://api.confident-darwin.212-227-197-242.plesk.page/api";
-    const [invoiceDetails, setInvoiceDetails] = useState(null);
+    const urlApi = "https://api.facturation.editeur-dentaire.fr/api";    const [invoiceDetails, setInvoiceDetails] = useState(null);
     const [totalPaymentPrice, setTotalPaymentPrice] = useState(0.0);
     const [totalPaymentStillForPayment, setTotalPaymentStillForPayment] = useState(0.0);
     const [invoiceAmount, setInvoiceAmount] = useState(0.0);
@@ -105,7 +103,6 @@ export default function InvoiceDetailsModal({ open, onClose, invoiceId }: any) {
     useEffect(() => {
         checkInvoicesPayment();
 
-        console.log('totalPaymentStillForPayment : ', totalPaymentStillForPayment);
     }, [invoiceDetails, totalPaymentStillForPayment, transactionsArray]);
 
 
@@ -114,11 +111,13 @@ export default function InvoiceDetailsModal({ open, onClose, invoiceId }: any) {
     async function checkInvoicesPayment() {
         transactionsArray.forEach(async element => {
             const formData = new FormData();
+            if(element.molliePaymentId==null){
             formData.append('molliePaymentId', element.molliePaymentId)
             const response = await axios.post(`${urlApi}/checkInvoicesPayment`, formData).then((result) => {
             }).catch((err) => {
                 console.log('error : ', err);
             });
+            }
         });
     }
 
@@ -128,8 +127,22 @@ export default function InvoiceDetailsModal({ open, onClose, invoiceId }: any) {
         let ch = '';
         const formData = new FormData();
         formData.append('invoiceNumber', invoiceId);
-        axios.post(`${urlApi}/getInvoiceTransactionByInvoiceNumber`, formData).then( (response) => {
-            console.log(response.data);
+
+        const options = {
+            method: 'post',
+            url: `${urlApi}/getInvoiceTransactionByInvoiceNumber`,
+            data: formData,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials' : 'true',
+            },
+        };
+
+        axios(options).then( (response) => {
 
             response.data.transaction.forEach((element: any) => {
                 arrayAux.push(element);
@@ -152,7 +165,6 @@ export default function InvoiceDetailsModal({ open, onClose, invoiceId }: any) {
         formData.append('invoice_number', invoiceId);
         axios.post(`${urlApi}/getInvoiceDetailsById`, formData).then((response) => {
             getTransactionsByInvoiceNumber();
-            console.log(response.data);
             ch = response.data.invoice.total;
 
             arrayAux.push(response.data.invoice);
@@ -409,14 +421,6 @@ export default function InvoiceDetailsModal({ open, onClose, invoiceId }: any) {
     }
 
 
-    useEffect(() => {
-
-        console.log('transactionDate:', transactionDate)
-        console.log('transactionAmount:', transactionAmount)
-        console.log('transactionDescription:', transactionDescription)
-        console.log('transactionMethod:', transactionMethod)
-
-    }, [transactionDate, transactionAmount, transactionDescription, transactionMethod])
 
 
     const handleTransactionDate: DatePickerProps['onChange'] = (date, dateString) => {

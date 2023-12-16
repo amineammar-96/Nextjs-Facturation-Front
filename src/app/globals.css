@@ -10,8 +10,7 @@ box-shadow: none;
 
 *:hover{
   outline: none !important;
-  box-shadow: none !important ;
-  border-color: black !important;
+  box-shadow: none ;
 
 }
 *:focus{
@@ -252,3 +251,11 @@ tr > td:first-child {
     padding-left: 10px;
 }
 
+
+.ant-btn-primary{
+  background-color: #2a87c6;
+}
+
+.ant-btn-primary:hover{
+  background-color: #50b1f1;
+}

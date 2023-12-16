@@ -9,8 +9,8 @@ Chart.register(...registerables);
 
 export default function InvoiceDatesChart({ startDate, endDate } :any) {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
-  const urlApi = "https://api.confident-darwin.212-227-197-242.plesk.page/api";
-  const [statistics, setStatistics] = useState<any[]>([]);
+    const urlApi = "https://api.facturation.editeur-dentaire.fr/api";
+    const [statistics, setStatistics] = useState<any[]>([]);
   const data = [10, 15, 8, 12, 6, 18, 14, 9, 13, 11, 7, 16];
   const chartInstanceRef = useRef<Chart | null>(null); // Reference to the Chart instance
   const [monthsArray, setMonthArray] = useState<any[]>([]);
@@ -27,8 +27,22 @@ export default function InvoiceDatesChart({ startDate, endDate } :any) {
     formData.append('startDate' , startDate);
     formData.append('endDate' , endDate);
 
+      const options = {
+          method: 'post',
+          url: `${urlApi}/statistics_invoices_amounts`,
+          data: formData,
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+              'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+              'withCredentials': 'true',
+          },
+      };
+
     if(startDate && endDate ){
-    axios.post(`${urlApi}/statistics_invoices_amounts` , formData)
+    axios(options)
     .then((response) => {
         response.data.stats.forEach((element:any) => {
             statsArraAux.push(element.count);

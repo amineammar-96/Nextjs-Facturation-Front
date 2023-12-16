@@ -1,6 +1,6 @@
 "use client";
 import React from 'react'
-import Logo from '../../../../public/assets/logoAux.png';
+//import Logo from '/assets/logoAux.png';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -35,12 +35,6 @@ export default function FooterComponent() {
      <div>
        <p>
 
-
-         <Image
-           src={Logo}
-           alt="Logo"
-         
-         />
         
        </p>
      </div>

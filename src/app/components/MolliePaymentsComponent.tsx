@@ -26,7 +26,7 @@ import {
 
 export default function MolliePaymentsComponent() {
 //   const router = useRouter();
-  const urlApi = "https://api.confident-darwin.212-227-197-242.plesk.page/api";
+  const urlApi = "https://api.facturation.editeur-dentaire.fr/api";
 
   const [mollieUsersArray, setMollieUsersArray] = useState<any[]>([]);
   const [mandatesArray, setMandatesArray] = useState([]);
@@ -843,8 +843,21 @@ export default function MolliePaymentsComponent() {
   };
 
   async function getAllPayments() {
-    await axios
-      .get(`${urlApi}/getAllPayments?page=${currentPage}&limit=${limit}`)
+
+    const options = {
+      method: 'GET',
+      url: `${urlApi}/getAllPayments?page=${currentPage}&limit=${limit}`,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'withCredentials': 'true',
+      },
+    };
+
+    await axios(options)
       .then((response) => {
         let paymentsArray: any = [];
 

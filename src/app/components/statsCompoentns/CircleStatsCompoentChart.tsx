@@ -6,7 +6,7 @@ export default function CircleStatsCompoentChart({ startDate, endDate } :any) {
 
 
     const chartRef = useRef<HTMLCanvasElement | null>(null);
-    const urlApi = "https://api.confident-darwin.212-227-197-242.plesk.page/api";
+    const urlApi = "https://api.facturation.editeur-dentaire.fr/api";
     const [statistics, setStatistics] = useState<any[]>([]);
     const chartInstanceRef = useRef<Chart | null>(null); // Reference to the Chart instance
     const [monthsArray, setMonthArray] = useState<any[]>([]);
@@ -29,7 +29,22 @@ const endDateFormatted = endDate.split('-').reverse().join('/');
       formData.append('startDate', startDateFormatted);
       formData.append('endDate', endDateFormatted);
 
-      axios.post(`${urlApi}/statistics_invoices_allAmounts`, formData).then((response) => {
+        const options = {
+            method: 'post',
+            url: `${urlApi}/statistics_invoices_allAmounts`,
+            data: formData,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'withCredentials': 'true',
+            },
+        };
+
+
+        axios(options).then((response) => {
         let amountSum = response.data.totalAmountTTC;
         let amountSumTax = response.data.totalTvaTax;
         let invoicesCoun = response.data.countInvoices;

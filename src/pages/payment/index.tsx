@@ -13,7 +13,7 @@ import "sweetalert2/dist/sweetalert2.min.css";
 import { useRouter } from "next/router";
 export default function PaymentPage() {
   const router = useRouter();
-  const urlApi = "https://api.confident-darwin.212-227-197-242.plesk.page/api";
+  const urlApi = "https://api.facturation.editeur-dentaire.fr/api";
   const [invoiceDetails, setInvoiceDetails] = useState<any>({});
   const [mollieUsersArray, setMollieUsersArray] = useState([]);
   const [mollieUserId, setMollieUserId] = useState("");
@@ -521,8 +521,19 @@ export default function PaymentPage() {
   }, [paymentsArray])
 
   async function getAllPayments() {
-    await axios
-      .get(`${urlApi}/getAllPayments`)
+    const options = {
+      method: 'GET',
+      url: `${urlApi}/getAllPayments`,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'withCredentials': 'true',
+      },
+    };
+    await axios(options)
       .then((response) => {
         let paymentsArrayAux: any = [];
 
